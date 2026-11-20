@@ -1,4 +1,7 @@
 *.pdf
+# The CV is ignored like every PDF. Once you have a public version WITHOUT a
+# phone number at public/assets/CV_Awal.pdf, uncomment the next line so it deploys:
+# !public/assets/CV_Awal.pdf
 node_modules/
 dist/
 .agents/

@@ -1,0 +1,14 @@
+/* local: fill the hero's visual column instead of 100vh */
+.lanyard-wrapper {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lanyard-wrapper canvas {
+  touch-action: none;
+}

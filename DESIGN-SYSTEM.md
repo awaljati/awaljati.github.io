@@ -127,3 +127,23 @@ Client feedback: page felt empty and flat, no transitions, too much CV text. New
 - **Type scale up:** hero name `clamp(3rem, 10vw, 7.5rem)`; H2 `clamp(2.25rem, 5vw, 4rem)`.
 - **Section spacing:** 96px mobile, 144px desktop.
 - Motion durations 200–500ms, easing `cubic-bezier(.2,.7,.2,1)`.
+
+---
+
+## v3 revision (2026-11-20): hero rebuilt in Vite + React. Overrides the sections above where they differ
+
+Only the hero and nav changed; every other section keeps v2 rules and content.
+
+- **Stack:** Vite + React (JS). Static files live in `public/assets/`; hashed build files go to `/static`.
+- **Nav:** floating pill, sticky at the top: Home, About, Projects, Contact. The active section gets a sliding
+  highlight plus a small accent dot (shape and color). Experience and Skills light up "Projects".
+- **Hero:** two columns ≥1024px (copy left, card right); one column below (copy first, card after).
+  Small label, serif name, typed accent phrase (italic serif), a 2-sentence lede, primary + ghost buttons,
+  icon links (GitHub, LinkedIn, email) and a Download CV link. No phone number.
+- **The one memorable element** is now the 3D lanyard card (React Bits "Lanyard": r3f + rapier + meshline).
+  It lazy-loads only on large, hover-capable screens with hardware WebGL, and never under reduced motion.
+  Everywhere else a static `card-front.png` is shown. The v1 spectrum trace is retired.
+- **Background:** Milky Way photo under a dark overlay (≥80% `--bg` behind text, AA for `--text-muted`),
+  30% scroll parallax, fading out below the hero, with the canvas star field on top.
+- **Entrance:** hero copy rises 16px in a 70ms stagger, 500ms each; the card fades in. All off under reduced motion.
+- The label "Astronomy · Instrumentation · Radio Telescopes" is a deliberate exception to the `A · B · C` rule (client request).
