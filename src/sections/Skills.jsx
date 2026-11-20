@@ -3,7 +3,7 @@ export default function Skills() {
   return (
     <section className="section" id="skills" aria-labelledby="skills-title">
       <div className="wrap">
-        <h2 id="skills-title" className="section-title reveal"><span className="section-num" aria-hidden="true">04</span>Skills</h2>
+        <h2 id="skills-title" className="section-title reveal"><span className="section-num" aria-hidden="true">05</span>Skills</h2>
         <dl className="skills">
           <div className="skill-group reveal">
             <dt>Code</dt>

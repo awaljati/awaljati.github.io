@@ -399,27 +399,6 @@ html:not(.js) .card { cursor: default; }
 }
 .card-details-inner > .points:first-child { padding-top: var(--s-3); border-top: 1px solid var(--line); }
 
-/* ---------- Experience ---------- */
-.exp { display: grid; border-top: 1px solid var(--line); }
-.exp-item {
-  display: grid;
-  gap: var(--s-2);
-  padding-block: var(--s-6);
-  border-bottom: 1px solid var(--line);
-}
-.exp-date { color: var(--accent); }
-.exp-role {
-  font-family: var(--font-display);
-  font-size: var(--fs-h3);
-  line-height: 1.2;
-}
-.exp-role span { color: var(--text-muted); }
-.exp-line { color: var(--text-muted); max-width: 64ch; }
-@media (min-width: 768px) {
-  .exp-item { grid-template-columns: 200px 1fr; column-gap: var(--s-6); align-items: baseline; }
-  .exp-date { grid-row: span 2; }
-}
-
 /* ---------- Skills ---------- */
 .skills { display: grid; gap: var(--s-6); }
 .skill-group { display: grid; gap: var(--s-3); }

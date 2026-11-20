@@ -3,7 +3,7 @@ export default function Projects() {
   return (
     <section className="section" id="projects" aria-labelledby="projects-title">
       <div className="wrap">
-        <h2 id="projects-title" className="section-title reveal"><span className="section-num" aria-hidden="true">02</span>Projects</h2>
+        <h2 id="projects-title" className="section-title reveal"><span className="section-num" aria-hidden="true">04</span>Projects</h2>
     
         <div className="cards">
           {/* POAM-3m */}
