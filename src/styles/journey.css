@@ -1,0 +1,184 @@
+/* =========================================================
+   Education + Experience & Organisations timelines (v3)
+   Inactive items step down in color, not opacity, so every
+   text stays ≥ 4.5:1 on --bg.
+   ========================================================= */
+
+.journey-grid {
+  display: grid;
+  gap: var(--s-8);
+}
+@media (min-width: 1024px) {
+  .journey-grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--s-8);
+    align-items: start;
+  }
+  /* The short Education column stays in view while Experience scrolls. */
+  .journey-col-edu {
+    position: sticky;
+    top: calc(var(--header-h) + var(--s-6));
+  }
+}
+
+.journey-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+  margin-bottom: var(--s-6);
+  font-family: var(--font-display);
+  font-size: clamp(1.875rem, 2.4vw + 1rem, 2.75rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- Timeline ---------- */
+.tl {
+  --node: 40px;
+  position: relative;
+  display: grid;
+}
+/* Rail (full) and progress (accent) run through the node centers. */
+.tl::before,
+.tl::after {
+  content: "";
+  position: absolute;
+  left: calc(var(--node) / 2 - 1px);
+  top: calc(var(--node) / 2);
+  width: 2px;
+  border-radius: 2px;
+}
+.tl::before {
+  bottom: calc(var(--s-7) + var(--node) / 2);
+  background: var(--line);
+}
+.tl::after {
+  height: var(--tl-progress, 0px);
+  background: linear-gradient(var(--accent), rgb(242 184 75 / 0.35));
+  transition: height 450ms var(--ease);
+}
+.tl:has(> .tl-item:only-child)::before,
+.tl:has(> .tl-item:only-child)::after { display: none; }
+
+.tl-item {
+  display: grid;
+  grid-template-columns: var(--node) minmax(0, 1fr);
+  gap: var(--s-4);
+  padding-bottom: var(--s-7);
+}
+.tl-item:last-child { padding-bottom: 0; }
+@media (min-width: 640px) {
+  .tl-item { gap: var(--s-5); }
+}
+
+.tl-node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: var(--node);
+  height: var(--node);
+  margin-top: 2px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: var(--surface-solid);
+  color: var(--text-faint);
+  font-weight: 500;
+  transition: background-color var(--t-mid) var(--ease), color var(--t-mid) var(--ease),
+              border-color var(--t-mid) var(--ease), box-shadow var(--t-mid) var(--ease);
+}
+
+.tl-body { min-width: 0; }
+
+/* logo | org | date; below 640px the date drops under the org name */
+.tl-head {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  align-items: center;
+  column-gap: var(--s-3);
+  row-gap: var(--s-1);
+}
+.tl-head .tl-logo { grid-row: span 2; }
+@media (min-width: 640px) {
+  .tl-head { grid-template-columns: 44px minmax(0, 1fr) auto; }
+  .tl-head .tl-logo { grid-row: auto; }
+}
+.tl-logo {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--line);
+  background: var(--surface-solid);
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: border-color var(--t-mid) var(--ease), color var(--t-mid) var(--ease);
+}
+.tl-logo img { width: 100%; height: 100%; object-fit: contain; }
+.tl-org {
+  min-width: 0;
+  font-weight: 600;
+  font-size: 1.0625rem;
+  line-height: 1.3;
+  color: var(--text-muted);
+  transition: color var(--t-mid) var(--ease);
+}
+.tl-date {
+  justify-self: start;
+  padding: 3px var(--s-3);
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--text-faint);
+  font-size: 0.75rem;
+  transition: color var(--t-mid) var(--ease), border-color var(--t-mid) var(--ease);
+}
+
+.tl-role {
+  margin: var(--s-3) 0 0; /* h4 is outside base.css's heading reset */
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 0.8vw + 1rem, 1.625rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text-muted);
+  transition: color var(--t-mid) var(--ease);
+}
+
+.tl-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-1) var(--s-2);
+  margin-top: var(--s-2);
+  font-size: var(--fs-small);
+  color: var(--text-faint);
+}
+.tl-dot { width: 3px; height: 3px; border-radius: 50%; background: currentColor; }
+.tl-tag {
+  padding: 1px var(--s-2);
+  border-radius: var(--r-sm);
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  transition: color var(--t-mid) var(--ease), border-color var(--t-mid) var(--ease);
+}
+
+/* ---------- Active item ---------- */
+.tl-item.is-active .tl-node {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 0 0 6px rgb(242 184 75 / 0.14);
+}
+.tl-item.is-active .tl-logo { border-color: rgb(242 184 75 / 0.5); color: var(--text); }
+.tl-item.is-active .tl-org,
+.tl-item.is-active .tl-role { color: var(--text); }
+.tl-item.is-active .tl-date { color: var(--text); border-color: var(--line-strong); }
+.tl-item.is-active .tl-meta { color: var(--text-muted); }
+.tl-item.is-active .tl-tag { color: var(--text); border-color: var(--line-strong); }

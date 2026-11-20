@@ -147,3 +147,8 @@ Only the hero and nav changed; every other section keeps v2 rules and content.
   30% scroll parallax, fading out below the hero, with the canvas star field on top.
 - **Entrance:** hero copy rises 16px in a 70ms stagger, 500ms each; the card fades in. All off under reduced motion.
 - The label "Astronomy · Instrumentation · Radio Telescopes" is a deliberate exception to the `A · B · C` rule (client request).
+- **Education + Experience & Organisations** (client request, overrides v2 "organisational experience removed"):
+  one section after About, two numbered timelines (Education 5fr, sticky on desktop | Experience 7fr).
+  Item = logo/monogram tile, organisation, mono date pill, serif role, "place • tag". The item past 55% of the
+  viewport is active (amber node + amber rail up to it); inactive items step down in color, never opacity,
+  so all text stays AA. Section numbers now run 01 About, 02 Education, 03 Experience, 04 Projects, 05 Skills, 06 Contact.

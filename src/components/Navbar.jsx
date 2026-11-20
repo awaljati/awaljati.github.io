@@ -11,8 +11,8 @@ const LINKS = [
 const SECTION_TO_LINK = {
   home: 'home',
   about: 'about',
+  experience: 'about', // Education + Experience sits between About and Projects
   projects: 'projects',
-  experience: 'projects',
   skills: 'projects',
   contact: 'contact'
 };

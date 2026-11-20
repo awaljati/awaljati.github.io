@@ -3,7 +3,7 @@ export default function Contact() {
   return (
     <section className="section section-contact" id="contact" aria-labelledby="contact-title">
       <div className="wrap">
-        <h2 id="contact-title" className="section-title reveal"><span className="section-num" aria-hidden="true">05</span>Contact</h2>
+        <h2 id="contact-title" className="section-title reveal"><span className="section-num" aria-hidden="true">06</span>Contact</h2>
         <a className="contact-email reveal" href="mailto:awaljati361@gmail.com">awaljati361@gmail.com</a>
         <ul className="contact-links reveal">
           <li>
